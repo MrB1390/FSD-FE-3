@@ -23,7 +23,7 @@ const Sidebar = () => {
         { withCredentials: true }
       );
       toast.success(response.data.message);
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       toast.error(error.response.data.message);
     }
