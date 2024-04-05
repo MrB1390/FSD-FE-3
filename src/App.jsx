@@ -33,7 +33,7 @@ const App = () => {
       <BrowserRouter>
         <div className="container-fluid">
           <Routes>
-            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Login />} />
             <Route path="/verify" element={<Verify />} />
             <Route path="/reset" element={<Reset />} />
           </Routes>
@@ -59,7 +59,6 @@ const App = () => {
                     <Route path="/orderedit" element={<OrderEdit />} />
                     <Route path="/orderlist" element={<OrderList />} />
                     <Route path="/orderinvoice" element={<InvoiceDetail />} />
-                    <Route path="/" element={<OrderList />} />
                   </Route>
                 </Routes>
               </DataRedux>
