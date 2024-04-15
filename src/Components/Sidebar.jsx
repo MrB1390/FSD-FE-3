@@ -69,12 +69,12 @@ const Sidebar = () => {
         <ul className="nav flex-column ms-2">
           {userType === "admin" && (
             <>
-              <li className="nav-item mb-1">
+              <li className="nav-item mb-2" style={{marginLeft: "12px"}}>
                 <div className="d-flex">
                   <img
                     src={dashImg}
                     alt="product"
-                    width={"30vw"}
+                    width={"33vw"}
                     height={"20%"}
                   />
                   {showNames && (
@@ -84,6 +84,7 @@ const Sidebar = () => {
                         style={{
                           textDecoration: "none",
                           color: "inherit",
+                          fontWeight: "bold",
                           fontSize: "15px",
                         }}
                       >

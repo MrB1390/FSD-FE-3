@@ -11,7 +11,6 @@ import { jwtDecode } from 'jwt-decode';
 
 const Login = () => {
   const baseUrl = import.meta.env.VITE_PUBLIC_BACKEND_URL;
-  console.log(baseUrl);
   const navigate = useNavigate();
   const [login, setLogin] = useState({
     email: "",
@@ -33,7 +32,7 @@ const Login = () => {
 
   const loginUser = async (data) => {
     try {
-      await axios.post(`http://localhost:4000/api/login`, data,{withCredentials:true}).then((res) => {
+      await axios.post(`${baseUrl}/api/login`, data,{withCredentials:true}).then((res) => {
         const {token} = res.data;
         const decodedToken = jwtDecode(token);
         const userType = decodedToken.role;
