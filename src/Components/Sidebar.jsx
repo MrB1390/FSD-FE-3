@@ -60,7 +60,7 @@ const Sidebar = () => {
                   }}
                 >
                   {" "}
-                  EBazar{" "}
+                  FBazar{" "}
                 </Link>
               </p>
             )}
