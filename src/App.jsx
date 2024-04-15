@@ -59,6 +59,7 @@ const App = () => {
                     <Route path="/orderedit" element={<OrderEdit />} />
                     <Route path="/orderlist" element={<OrderList />} />
                     <Route path="/orderinvoice" element={<InvoiceDetail />} />
+                    <Route path="/dashboard" element={<Dashboard />} />☻
                   </Route>
                 </Routes>
               </DataRedux>

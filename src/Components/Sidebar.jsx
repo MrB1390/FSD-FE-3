@@ -3,6 +3,7 @@ import toggle from "../assets/icons8-market-square-64.png";
 import productImg from "../assets/icons8-products-50.png";
 import categoryImg from "../assets/icons8-category-50.png";
 import orderImg from "../assets/icons8-truck-50.png";
+import dashImg from "../assets/icons8-dashboard-64.png"
 import custImg from "../assets/icons8-customers-50.png";
 import "./Sidebar.css";
 import { Link, Outlet, useNavigate } from "react-router-dom";
@@ -28,7 +29,6 @@ const Sidebar = () => {
       toast.error(error.response.data.message);
     }
   };
-
 
   useEffect(() => {
     const userType = localStorage.getItem("userType");
@@ -69,6 +69,31 @@ const Sidebar = () => {
         <ul className="nav flex-column ms-2">
           {userType === "admin" && (
             <>
+              <li className="nav-item mb-1">
+                <div className="d-flex">
+                  <img
+                    src={dashImg}
+                    alt="product"
+                    width={"30vw"}
+                    height={"20%"}
+                  />
+                  {showNames && (
+                    <p className="p-1 mx-2">
+                      <Link
+                        to="/dashboard"
+                        style={{
+                          textDecoration: "none",
+                          color: "inherit",
+                          fontSize: "15px",
+                        }}
+                      >
+                        Dashboard
+                      </Link>
+                    </p>
+                  )}
+                  <span className="arrow icofont-rounded-down ms-auto text-end fs-5"></span>
+                </div>
+              </li>
               <li className="nav-item mb-1">
                 <button
                   className="btn  fw-bold"
@@ -423,7 +448,7 @@ const Sidebar = () => {
               </li>
             </>
           )}
-              {showNames && ( 
+          {showNames && (
             <li className="nav-item mb-1 ms-2">
               <button className="btn btn-success" onClick={logOut}>
                 Logout
