@@ -39,7 +39,7 @@ const Login = () => {
         localStorage.setItem("userType", userType);
         toast.success(res.data.message);
         formik.resetForm();
-        navigate('/orderlist');
+        navigate('/productcart');
       });
     } catch (error) {
       toast.error(error.response.data.message);
