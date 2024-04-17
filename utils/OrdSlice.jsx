@@ -197,6 +197,15 @@ export const OrdSlice = createSlice({
       state.status = "failure";
       state.error = action.payload;
     },
+    userOrdDataFetchById: (state) => {
+      state.status = "loading";
+    },
+    userOrdDataFetchByIdSuccess: (state, action) => {
+      (state.status = "success"), (state.data = action.payload);
+    },
+    userOrdDataFetchByIdFailure: (state, action) => {
+      (state.status = "failure"), (state.error = action.payload);
+    },
     countDataFetch: (state) => {
       state.status = "loading"
     },
@@ -261,6 +270,9 @@ export const {
   ordDataFetchSuccess,
   countDataFetch,
   countDataSuccess,
-  countDataFailure
+  countDataFailure,
+  userOrdDataFetchById,
+  userOrdDataFetchByIdFailure,
+  userOrdDataFetchByIdSuccess
 } = OrdSlice.actions;
 export default OrdSlice.reducer;

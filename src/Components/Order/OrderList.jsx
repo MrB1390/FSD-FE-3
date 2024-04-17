@@ -1,19 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {  fetchOrder, fetchOrderById, orderDeleteById } from "../../../utils/Api";
+import {  fetchOrder, fetchOrderById, fetchUserOrderById, orderDeleteById } from "../../../utils/Api";
 
 const OrderList = () => {
   const [rerender, setRerender] = useState(false);
+  const [userType,setUserType] = useState("");
+  const [userid,setUserid] = useState("")
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const orders = useSelector((state) => state.val.data);
   const status = useSelector((state) => state.val.status);
   const error = useSelector((state) => state.val.error);
-
+ 
   useEffect(() => {
-    dispatch(fetchOrder());
-  }, [dispatch, rerender]);
+    const userType = localStorage.getItem("userType");
+    setUserType(userType);
+    const userId = localStorage.getItem("userId");
+    setUserid(userId);
+  
+    // Ensure userId is valid before making the API call
+    if (userType === "admin") {
+      dispatch(fetchOrder());
+    } else if (userType === "user" && userId) {
+      dispatch(fetchUserOrderById(userId));
+    }
+  }, [dispatch, userType, userid, rerender]);
+  
+  
+
 
   const handleEdit = (id) => {
     dispatch(fetchOrderById(id));

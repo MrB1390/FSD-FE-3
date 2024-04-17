@@ -1,5 +1,5 @@
 import axios from "axios";
-import { catDataAddFailure, catDataAddSuccess, catDataDeleteFailure, catDataDeleteSuccess, catDataEditFailure, catDataEditSuccess, catDataFetch, catDataFetchByIdFailure, catDataFetchByIdSuccess, catDataFetchFailure, catDataFetchSuccess, countDataFetch, countDataSuccess, custDataAddFailure, custDataAddSuccess, custDataDeleteFailure, custDataDeleteSuccess, custDataEditFailure, custDataEditSuccess, custDataFetch, custDataFetchByIdFailure, custDataFetchByIdSuccess, custDataFetchFailure, custDataFetchSuccess, ordDataAddFailure, ordDataAddSuccess, ordDataDeleteFailure, ordDataDeleteSuccess, ordDataEditFailure, ordDataEditSuccess, ordDataFetch, ordDataFetchByIdFailure, ordDataFetchByIdSuccess, ordDataFetchFailure, ordDataFetchSuccess, prdDataAddFailure, prdDataAddSuccess, prdDataDeleteFailure, prdDataDeleteSuccess, prdDataEditFailure, prdDataEditSuccess, prdDataFetch, prdDataFetchByIdFailure, prdDataFetchByIdSuccess, prdDataFetchFailure, prdDataFetchSuccess } from "./OrdSlice"
+import { catDataAddFailure, catDataAddSuccess, catDataDeleteFailure, catDataDeleteSuccess, catDataEditFailure, catDataEditSuccess, catDataFetch, catDataFetchByIdFailure, catDataFetchByIdSuccess, catDataFetchFailure, catDataFetchSuccess, countDataFetch, countDataSuccess, custDataAddFailure, custDataAddSuccess, custDataDeleteFailure, custDataDeleteSuccess, custDataEditFailure, custDataEditSuccess, custDataFetch, custDataFetchByIdFailure, custDataFetchByIdSuccess, custDataFetchFailure, custDataFetchSuccess, ordDataAddFailure, ordDataAddSuccess, ordDataDeleteFailure, ordDataDeleteSuccess, ordDataEditFailure, ordDataEditSuccess, ordDataFetch, ordDataFetchByIdFailure, ordDataFetchByIdSuccess, ordDataFetchFailure, ordDataFetchSuccess, prdDataAddFailure, prdDataAddSuccess, prdDataDeleteFailure, prdDataDeleteSuccess, prdDataEditFailure, prdDataEditSuccess, prdDataFetch, prdDataFetchByIdFailure, prdDataFetchByIdSuccess, prdDataFetchFailure, prdDataFetchSuccess, userOrdDataFetchByIdFailure, userOrdDataFetchByIdSuccess } from "./OrdSlice"
 
 
 const baseUrl = import.meta.env.VITE_PUBLIC_BACKEND_URL;
@@ -173,6 +173,15 @@ export const fetchOrderById = (id) => async(dispatch) => {
         dispatch(ordDataFetchByIdSuccess(res.data.data))
     } catch (error) {
         dispatch(ordDataFetchByIdFailure(error.response.data.message))
+    }
+}
+
+export const fetchUserOrderById = (id) => async(dispatch) => {
+    try {
+        const res = await axios.get(`${baseUrl}/apiOrder/customer/${id}`,{withCredentials: true});
+        dispatch(userOrdDataFetchByIdSuccess(res.data.data))
+    } catch (error) {
+        dispatch(userOrdDataFetchByIdFailure(error.response.data.message))
     }
 }
 

@@ -36,7 +36,9 @@ const Login = () => {
         const {token} = res.data;
         const decodedToken = jwtDecode(token);
         const userType = decodedToken.role;
+        const userId = decodedToken.userId
         localStorage.setItem("userType", userType);
+        localStorage.setItem("userId", userId)
         toast.success(res.data.message);
         formik.resetForm();
         navigate('/productcart');
