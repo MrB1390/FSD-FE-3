@@ -189,6 +189,20 @@ export const OrdSlice = createSlice({
       state.status = "failure";
       state.error = action.payload;
     },
+    ordStatusEditSuccess: (state,action) => {
+      state.status = "success";
+      const updatedStatus = action.payload;
+      const index = state.data.findIndex(
+        (order) => order.orderId === updatedStatus.orderId
+      );
+      if(index !== -1){
+        state.data[index] = updatedStatus
+      }
+    },
+    ordStatusEditFailure: (state,action) =>{
+       state.status = "failure";
+       state.error = action.payload;
+    },
     ordDataDeleteSuccess: (state, action) => {
       state.status = "success";
       // state.data=action.payload
@@ -216,6 +230,12 @@ export const OrdSlice = createSlice({
     countDataFailure: (state,action) => {
       state.status = "failure",
       state.error = action.payload
+    },
+    registerAddSuccess: (state, action) => {
+      (state.status = "success"), state.data.push(action.payload);
+    },
+    registerAddFailure: (state, action) => {
+      (state.status = "failure"), (state.error = action.payload);
     },
   },
 });
@@ -273,6 +293,10 @@ export const {
   countDataFailure,
   userOrdDataFetchById,
   userOrdDataFetchByIdFailure,
-  userOrdDataFetchByIdSuccess
+  userOrdDataFetchByIdSuccess,
+  registerAddFailure,
+  registerAddSuccess,
+  ordStatusEditFailure,
+  ordStatusEditSuccess
 } = OrdSlice.actions;
 export default OrdSlice.reducer;

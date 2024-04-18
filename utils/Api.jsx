@@ -1,5 +1,5 @@
 import axios from "axios";
-import { catDataAddFailure, catDataAddSuccess, catDataDeleteFailure, catDataDeleteSuccess, catDataEditFailure, catDataEditSuccess, catDataFetch, catDataFetchByIdFailure, catDataFetchByIdSuccess, catDataFetchFailure, catDataFetchSuccess, countDataFetch, countDataSuccess, custDataAddFailure, custDataAddSuccess, custDataDeleteFailure, custDataDeleteSuccess, custDataEditFailure, custDataEditSuccess, custDataFetch, custDataFetchByIdFailure, custDataFetchByIdSuccess, custDataFetchFailure, custDataFetchSuccess, ordDataAddFailure, ordDataAddSuccess, ordDataDeleteFailure, ordDataDeleteSuccess, ordDataEditFailure, ordDataEditSuccess, ordDataFetch, ordDataFetchByIdFailure, ordDataFetchByIdSuccess, ordDataFetchFailure, ordDataFetchSuccess, prdDataAddFailure, prdDataAddSuccess, prdDataDeleteFailure, prdDataDeleteSuccess, prdDataEditFailure, prdDataEditSuccess, prdDataFetch, prdDataFetchByIdFailure, prdDataFetchByIdSuccess, prdDataFetchFailure, prdDataFetchSuccess, userOrdDataFetchByIdFailure, userOrdDataFetchByIdSuccess } from "./OrdSlice"
+import { catDataAddFailure, catDataAddSuccess, catDataDeleteFailure, catDataDeleteSuccess, catDataEditFailure, catDataEditSuccess, catDataFetch, catDataFetchByIdFailure, catDataFetchByIdSuccess, catDataFetchFailure, catDataFetchSuccess, countDataFetch, countDataSuccess, custDataAddFailure, custDataAddSuccess, custDataDeleteFailure, custDataDeleteSuccess, custDataEditFailure, custDataEditSuccess, custDataFetch, custDataFetchByIdFailure, custDataFetchByIdSuccess, custDataFetchFailure, custDataFetchSuccess, ordDataAddFailure, ordDataAddSuccess, ordDataDeleteFailure, ordDataDeleteSuccess, ordDataEditFailure, ordDataEditSuccess, ordDataFetch, ordDataFetchByIdFailure, ordDataFetchByIdSuccess, ordDataFetchFailure, ordDataFetchSuccess, ordStatusEditFailure, ordStatusEditSuccess, prdDataAddFailure, prdDataAddSuccess, prdDataDeleteFailure, prdDataDeleteSuccess, prdDataEditFailure, prdDataEditSuccess, prdDataFetch, prdDataFetchByIdFailure, prdDataFetchByIdSuccess, prdDataFetchFailure, prdDataFetchSuccess, registerAddFailure, registerAddSuccess, userOrdDataFetchByIdFailure, userOrdDataFetchByIdSuccess } from "./OrdSlice"
 
 
 const baseUrl = import.meta.env.VITE_PUBLIC_BACKEND_URL;
@@ -200,6 +200,24 @@ export const orderDeleteById = (id) => async(dispatch) => {
         dispatch(ordDataDeleteSuccess(res.data))
     } catch (error) {
         dispatch(ordDataDeleteFailure(error.response.data.message))
+    }
+}
+
+export const orderStatusById = (id,data) => async(dispatch) => {
+    try {
+        const res = await axios.patch(`${baseUrl}/apiOrder/editStatus/${id}`,data,{withCredentials: true});
+        dispatch(ordStatusEditSuccess(res.data))
+    } catch (error) {
+        dispatch(ordStatusEditFailure(error.response.data.message))
+    }
+}
+
+export const registerUser = (data) => async(dispatch) => {
+    try {
+        const res = await axios.post(`${baseUrl}/api/register`,data,{withCredentials:true});
+        dispatch(registerAddSuccess(res.data))
+    } catch (error) {
+        dispatch(registerAddFailure(error.response.data.message))
     }
 }
 

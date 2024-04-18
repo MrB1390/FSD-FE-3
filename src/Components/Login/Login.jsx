@@ -84,6 +84,9 @@ const Login = () => {
               <div className="text-danger">{formik.errors.password}</div>
             </div>
             <div className="mb-3 ms-1">
+              <Link to="/register">Sign-Up</Link>
+            </div>
+            <div className="mb-3 ms-1">
               <Link to="/verify">Forgot Password?</Link>
             </div>
             <button type="submit" className="btn btn-primary">

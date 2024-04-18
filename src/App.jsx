@@ -25,6 +25,7 @@ import Reset from "./Components/Login/Reset";
 import Page from "./Page";
 import axios from "axios";
 import Dashboard from "./Dashboard";
+import Register from "./Components/Login/Register";
 
 const App = () => {
 
@@ -35,6 +36,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/verify" element={<Verify />} />
+            <Route path="/register" element={<DataRedux><Register /></DataRedux>} />
             <Route path="/reset" element={<Reset />} />
           </Routes>
           <div className="row">
