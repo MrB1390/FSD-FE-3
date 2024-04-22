@@ -57,7 +57,7 @@ const ProductEdits = () => {
   return (
     <div>
       <div className="container mt-5">
-        <h1 className="text-center">Edit Product</h1>
+      <h1 className="text-center" style={{color: '#fcba03'}}>Product Edit</h1>
         <form onSubmit={formik.handleSubmit} >
           <div class="mb-3">
             <label for="id" class="form-label">

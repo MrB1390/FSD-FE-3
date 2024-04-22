@@ -33,7 +33,7 @@ const CategoryList = () => {
 
   return (
     <div>
-      <h1 className="text-center">Category Table</h1>
+       <h1 className="text-center" style={{color: '#fcba03'}}>Category List</h1>
       <div className="p-2">
       <button className="btn d-flex ms-auto" style={{color:"white",backgroundColor:"#0eb657"}} onClick={()=>{
         navigate('/categoryadd')

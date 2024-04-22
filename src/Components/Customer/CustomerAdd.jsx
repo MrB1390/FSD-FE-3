@@ -65,7 +65,7 @@ const CustomerAdd = () => {
   return (
     <div>
       <div className="container mt-5" style={{marginLeft:"30px"}}>
-        <h1 className="text-center">Add Customer</h1>
+      <h1 className="text-center" style={{color: '#fcba03'}}>Customer Add</h1>
         <form onSubmit={formik.handleSubmit} encType="multipart/form-data">
           <div class="mb-3">
             <label for="id" class="form-label">

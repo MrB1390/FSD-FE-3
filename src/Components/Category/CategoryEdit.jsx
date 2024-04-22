@@ -57,7 +57,7 @@ const CategoryEdit = () => {
   return (
     <div>
       <div className="container mt-5">
-        <h1 className="text-center">Edit Category</h1>
+      <h1 className="text-center" style={{color: '#fcba03'}}>Category Edit</h1>
         <form onSubmit={formik.handleSubmit} encType="multipart/form-data">
           <div class="mb-3">
             <label for="id" class="form-label">

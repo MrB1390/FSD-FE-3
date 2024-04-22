@@ -66,7 +66,7 @@ const ProductCart = () => {
 
   return (
     <div>
-      <h1 className="text-center">Product Cart</h1>
+      <h1 className="text-center" style={{color: '#fcba03'}}>Product Cart</h1>
       <div className="container mt-4 p-2">
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {ProductData.map((item, index) => (

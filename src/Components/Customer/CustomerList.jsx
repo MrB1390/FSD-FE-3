@@ -33,7 +33,7 @@ const CustomerList = () => {
 
   return (
     <div>
-      <h1 className="text-center">Customers Table</h1>
+      <h1 className="text-center" style={{color: '#fcba03'}}>Customer List</h1>
       <div className="p-2">
       <button className="btn d-flex ms-auto" style={{color:"white",backgroundColor:"#0eb657"}} onClick={()=>{
         navigate('/customeradd')

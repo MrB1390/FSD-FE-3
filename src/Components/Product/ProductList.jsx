@@ -30,20 +30,26 @@ const ProductList = () => {
     });
   };
 
-   // Check if products is not available or not an array
-   if (!products || !Array.isArray(products)) {
+  // Check if products is not available or not an array
+  if (!products || !Array.isArray(products)) {
     return <div>Loading...</div>; // You can replace this with a loading indicator
   }
 
   return (
     <div>
-      <h1 className="text-center">Products Table</h1>
+      <h1 className="text-center" style={{ color: "#fcba03" }}>
+        Product List
+      </h1>
       <div className="p-2">
-      <button className="btn d-flex ms-auto" style={{color:"white",backgroundColor:"#0eb657"}} onClick={()=>{
-        navigate('/productadd')
-      }}>
-        Add Product
-      </button>
+        <button
+          className="btn d-flex ms-auto"
+          style={{ color: "white", backgroundColor: "#0eb657" }}
+          onClick={() => {
+            navigate("/productadd");
+          }}
+        >
+          Add Product
+        </button>
       </div>
       <div class="table-responsive">
         <table class="table align-middle mb-0 bg-white">
@@ -62,15 +68,15 @@ const ProductList = () => {
                   <tr key={index}>
                     <th scope="row">{item.productId}</th>
                     <td>
-                    <img
-                            src={item.image}
-                            alt={item.productName}
-                            style={{
-                              width: "45px",
-                              height: "45px",
-                              borderRadius: "20px",
-                            }}
-                          />
+                      <img
+                        src={item.image}
+                        alt={item.productName}
+                        style={{
+                          width: "45px",
+                          height: "45px",
+                          borderRadius: "20px",
+                        }}
+                      />
                     </td>
                     <td>
                       <p class="fw-normal mb-1">{item.productName}</p>

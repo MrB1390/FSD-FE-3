@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { fetchOrder, fetchOrderById, fetchUserOrderById, orderDeleteById, orderStatusById } from "../../../utils/Api";
+import {
+  fetchOrder,
+  fetchOrderById,
+  fetchUserOrderById,
+  orderDeleteById,
+  orderStatusById,
+} from "../../../utils/Api";
 
 const OrderList = () => {
   const [rerender, setRerender] = useState(false);
@@ -44,13 +50,13 @@ const OrderList = () => {
     });
   };
 
-    // Check if Orders is not available or not an array
-    if (!orders || !Array.isArray(orders)) {
-      return <div>Loading...</div>; // You can replace this with a loading indicator
-    }
+  // Check if Orders is not available or not an array
+  if (!orders || !Array.isArray(orders)) {
+    return <div>Loading...</div>; // You can replace this with a loading indicator
+  }
 
   const handleDeliveryStatusChange = (id, newStatus) => {
-    dispatch(orderStatusById(id, {deliveryStatus: newStatus})).then(() => {
+    dispatch(orderStatusById(id, { deliveryStatus: newStatus })).then(() => {
       setRerender((prevState) => !prevState);
     });
   };
@@ -60,21 +66,37 @@ const OrderList = () => {
   };
 
   // Filter orders based on delivery status
-  const filteredOrders = deliveryFilter === "All" ? orders : orders.filter(order => order.deliveryStatus === deliveryFilter);
+  const filteredOrders =
+    deliveryFilter === "All"
+      ? orders
+      : orders.filter((order) => order.deliveryStatus === deliveryFilter);
 
   return (
     <div>
-      <h1 className="text-center">Order Table</h1>
+      <h1 className="text-center" style={{ color: "#fcba03" }}>
+        Order List
+      </h1>
       <div className="p-2">
-        <button className="btn d-flex ms-auto" style={{ color: "white", backgroundColor: "#0eb657" }} onClick={() => {
-          navigate('/orderadd')
-        }}>
+        <button
+          className="btn d-flex ms-auto"
+          style={{ color: "white", backgroundColor: "#0eb657" }}
+          onClick={() => {
+            navigate("/orderadd");
+          }}
+        >
           Add Order
         </button>
       </div>
       <div className="mb-3">
-        <label htmlFor="deliveryFilter" className="form-label">Filter by Delivery Status:</label>
-        <select className="form-select" id="deliveryFilter" value={deliveryFilter} onChange={handleFilterChange}>
+        <label htmlFor="deliveryFilter" className="form-label">
+          Filter by Delivery Status:
+        </label>
+        <select
+          className="form-select"
+          id="deliveryFilter"
+          value={deliveryFilter}
+          onChange={handleFilterChange}
+        >
           <option value="All">All</option>
           <option value="Pending">Pending</option>
           <option value="Delivered">Delivered</option>
@@ -103,12 +125,19 @@ const OrderList = () => {
                   <td>
                     <p class="fw-normal mb-1">{item.productName}</p>
                   </td>
-                  <td> {/* Changed to render a dropdown */}
+                  <td>
+                    {" "}
+                    {/* Changed to render a dropdown */}
                     <select
                       className="form-select"
                       value={item.deliveryStatus}
-                      onChange={(e) => handleDeliveryStatusChange(item.orderId,e.target.value)}
-                      disabled={ userType === 'user' || item.deliveryStatus === 'Delivered'}
+                      onChange={(e) =>
+                        handleDeliveryStatusChange(item.orderId, e.target.value)
+                      }
+                      disabled={
+                        userType === "user" ||
+                        item.deliveryStatus === "Delivered"
+                      }
                     >
                       <option value="Pending">Pending</option>
                       <option value="Delivered">Delivered</option>
@@ -133,7 +162,7 @@ const OrderList = () => {
                         onClick={() => {
                           handleEdit(item.orderId);
                         }}
-                        disabled={item.deliveryStatus === 'Delivered'} // Disable if delivered
+                        disabled={item.deliveryStatus === "Delivered"} // Disable if delivered
                       >
                         Edit
                       </button>
@@ -143,7 +172,7 @@ const OrderList = () => {
                         onClick={() => {
                           handleDelete(item.orderId);
                         }}
-                        disabled={item.deliveryStatus === 'Delivered'} // Disable if delivered
+                        disabled={item.deliveryStatus === "Delivered"} // Disable if delivered
                       >
                         Delete
                       </button>

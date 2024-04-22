@@ -33,6 +33,7 @@ const Sidebar = () => {
   useEffect(() => {
     const userType = localStorage.getItem("userType");
     setUserType(userType);
+    setShowNames(!showNames)
   }, []);
 
   const toggleNames = () => {
