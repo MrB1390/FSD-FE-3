@@ -55,7 +55,8 @@ const Login = () => {
       <div className="container mt-5">
         <div className="row">
           <div className="col-md-9">
-            <div style={{fontSize:'150px',color: '#fcba03'}}>FBazar
+            <div style={{color: '#fcba03'}}>
+            <h1 style={{fontSize:'150px'}}>FBazar</h1>
             <h1>Heaven For Ice-Cream Lovers</h1>
             </div>
             <div className="d-flex">
