@@ -150,6 +150,10 @@ Features
 ### SideBar Component
 The `Sidebar` component is a navigation panel used to navigate between different sections of the application. It provides links to various pages and functionalities based on the user's type (admin or user).
 
+### Admin Credentials: 
+**User Id**:balaworkcc@gmail.com,
+**Password**:12345
+
 Features
 --------
 
