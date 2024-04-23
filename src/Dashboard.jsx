@@ -113,28 +113,28 @@ const Dashboard = () => {
   return (
     <div>
       <div className="container">
-        <h1 className="text-center">Statistical Data</h1>
+        <h1 className="text-center" style={{backgroundColor:"#fcba03"}}>Statistical Data</h1>
         <div className="row mt-4">
           <div className="col-md-6">
-            <h3>Bar Chart</h3>
-            <div style={{ maxWidth: "650px" }}>
+            <h3 style={{backgroundColor:"#fcba03"}}>Bar Chart</h3>
+            <div style={{ maxWidth: "650px",backgroundColor:"#dad3f6" }}>
               {chartData && (
                 <Bar data={chartData} options={options} height={400} />
               )}
             </div>
           </div>
           <div className="col-md-6">
-            <h3>Line Chart</h3>
-            <div style={{ maxWidth: "650px" }}>
+            <h3 style={{backgroundColor:"#fcba03"}}>Line Chart</h3>
+            <div style={{ maxWidth: "650px",backgroundColor:"#dad3f6" }}>
               {chartData && (
                 <Line data={chartData} options={options} height={400} />
               )}
             </div>
           </div>
         </div>
-        <h3 className="text-center mt-4">Pie Chart</h3>
+        <h3 className="text-center mt-4" style={{backgroundColor:"#fcba03"}}>Pie Chart</h3>
         <div className="d-flex justify-content-center">
-          <div style={{maxWidth: "600px"}}>
+          <div style={{maxWidth: "600px",backgroundColor:"#dad3f6"}}>
             {chartData && <Pie
             data={chartData}
             options={pieOptions}
